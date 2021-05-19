@@ -75,7 +75,7 @@ class HeapMin:
 
     def pai(self, u):
         return self.heap[u // 2]
-
+        
 
 class Grafo:
 
@@ -110,41 +110,29 @@ class Grafo:
 
 
 qntd = int(input("Insira a quantidade de alunos: "))
-print(f'Olá, {qntd}')
+print(f'Olá, quantidade = {qntd}')
 g = Grafo(qntd)
 
+i = int(((qntd * qntd) - qntd)/2)
+print(f'Existem {i} interacoes')
 
-i= int(((qntd * qntd) - qntd)/ 2 )
-print(i)
+for origem in range (1, qntd + 1) :
 
-for n in range (1, i + 1) :
-    origem = int(input("Insira o primeiro ponto: "))
-    proximo = int(input("Insira o segundo ponto: "))
-    peso = int(input("Insira o peso: "))
-    print(origem, proximo, peso)
+    for proximo in range (1, qntd + 1) :
+        if origem != proximo and origem < proximo: 
 
+            peso = int(input(f'({origem},{proximo}) - Insira o peso da rota: '))
+            print(f'{origem} -> {proximo} = {peso} && {proximo} -> {origem} = {peso}')     
 
-    g.adiciona_aresta(origem, proximo, peso)
-    g.adiciona_aresta(proximo, origem, peso)
-
-
+            g.adiciona_aresta(origem, proximo, peso)
+            #g.adiciona_aresta(proximo, origem, peso)
 
 
+#   https://souiesb-my.sharepoint.com/:o:/g/personal/1922130017_iesb_edu_br/EnRaDKgoggJFsZmH3KecQbQBXADEl-gnQt6pMCqhPyHdDQ?e=o4fRI8
 
-##pontos teste
-#g.adiciona_aresta(1, 2, 5)
-#g.adiciona_aresta(1, 3, 6)
-#g.adiciona_aresta(1, 4, 10)
-#g.adiciona_aresta(3, 4, 3)
+[0, 4, 8, 15, 24]
 
-
-#g.adiciona_aresta(2, 5, 13)
-#g.adiciona_aresta(3, 5, 11)
-#g.adiciona_aresta(3, 6, 6)
-#g.adiciona_aresta(4, 5, 6)
-#g.adiciona_aresta(4, 6, 4)
-#g.adiciona_aresta(5, 7, 3)
-#g.adiciona_aresta(6, 7, 8)
+[[0, 1], [4, 1], [7, 2], [15, 1], [21, 3]]
 
 g.mostra_matriz()
 
