@@ -125,14 +125,8 @@ for origem in range (1, qntd + 1) :
             print(f'{origem} -> {proximo} = {peso} && {proximo} -> {origem} = {peso}')     
 
             g.adiciona_aresta(origem, proximo, peso)
-            #g.adiciona_aresta(proximo, origem, peso)
+            g.adiciona_aresta(proximo, origem, peso)
 
-
-#   https://souiesb-my.sharepoint.com/:o:/g/personal/1922130017_iesb_edu_br/EnRaDKgoggJFsZmH3KecQbQBXADEl-gnQt6pMCqhPyHdDQ?e=o4fRI8
-
-[0, 4, 8, 15, 24]
-
-[[0, 1], [4, 1], [7, 2], [15, 1], [21, 3]]
 
 g.mostra_matriz()
 
@@ -140,4 +134,4 @@ resultado_dijkstra = g.dijkstra(1)
 print(resultado_dijkstra)
 
 
-
+#   https://souiesb-my.sharepoint.com/:o:/g/personal/1922130017_iesb_edu_br/EnRaDKgoggJFsZmH3KecQbQBXADEl-gnQt6pMCqhPyHdDQ?e=o4fRI8
