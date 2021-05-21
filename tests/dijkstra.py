@@ -103,6 +103,7 @@ class Grafo:
                 if self.grafo[v-1][i] != 0:
                     if custo_vem[i][0] == -1 or custo_vem[i][0] > dist + self.grafo[v-1][i]:
                         custo_vem[i] = [dist + self.grafo[v-1][i], v]
+                        print(f'("origem:"{origem}), \n("caminho:" {custo_vem}) \n, ("comparado:" {i})\n')
                         h.adiciona_no(dist + self.grafo[v-1][i], i+1)
         return custo_vem
 
@@ -130,8 +131,18 @@ for origem in range (1, qntd + 1) :
 
 g.mostra_matriz()
 
-resultado_dijkstra = g.dijkstra(1)
+for i in range (1, qntd) :
+    resultado_dijkstra = g.dijkstra(i)
+
+#resultado_dijkstra2 = g.dijkstra(2)
 print(resultado_dijkstra)
+
+#print(f'Djikstra 2: {resultado_dijkstra2}')
 
 
 #   https://souiesb-my.sharepoint.com/:o:/g/personal/1922130017_iesb_edu_br/EnRaDKgoggJFsZmH3KecQbQBXADEl-gnQt6pMCqhPyHdDQ?e=o4fRI8
+
+
+#Bota o link ae -> https://www.youtube.com/watch?v=7yrmrKE1tgA
+
+#https://www.youtube.com/watch?v=fdqxetN9YPA

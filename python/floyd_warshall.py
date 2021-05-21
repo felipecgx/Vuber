@@ -50,13 +50,6 @@ if __name__ == '__main__':
         [5, 4, 6]])
 
 
-
-
-#Bota o link ae -> https://www.youtube.com/watch?v=7yrmrKE1tgA
-#cuzin<<<<<<<--------------
-#https://www.youtube.com/watch?v=fdqxetN9YPA
-
-
 """
     pair        dist     path
   1 →   2     4       1 → 2
