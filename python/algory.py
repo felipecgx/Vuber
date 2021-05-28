@@ -27,7 +27,7 @@ def print_solution(distance):
                 print("INF", end=" ")
             else:
                 print(distance[i][j], end="  ")
-        print(" ")
+        print("")
 
 """
 G = [[0, 3, INF, 5],

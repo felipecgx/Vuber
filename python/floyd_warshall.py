@@ -22,8 +22,7 @@ def floyd_warshall(n, edge):
             path = [i]
             while path[-1] != j:
                 path.append(nxt[path[-1]][j])
-            print("%3d → %3d  %4d       %s"
-                  % (i + 1, j + 1, dist[i][j],
+            print("%3d → %3d →%4d       %s" % (i + 1, j + 1, dist[i][j],
                      ' → '.join(str(p + 1) for p in path)))
     
 if __name__ == '__main__':

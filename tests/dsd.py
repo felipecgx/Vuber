@@ -1,5 +1,6 @@
 import math
 
+
 class HeapMin:
 
     def __init__(self):
@@ -74,7 +75,7 @@ class HeapMin:
 
     def pai(self, u):
         return self.heap[u // 2]
-        
+
 
 class Grafo:
 
@@ -91,53 +92,40 @@ class Grafo:
         for i in range(self.vertices):
             print(self.grafo[i])
 
-    def dijkstra(self, origem): 
-        custo_vem = [[-1, 0, 0] for i in range(self.vertices)]
-        custo_vem[origem - 1] = [ 0, origem, 1]
+    def dijkstra(self, origem):
+        custo_vem = [[-1, 0] for i in range(self.vertices)]
+        custo_vem[origem - 1] = [0, origem, 1]
         h = HeapMin()
         h.adiciona_no(0, origem)
-        print(f'Saida  Destino   Total')
         while h.tamanho() > 0:
-            
             dist, v = h.remove_no()
             for i in range(self.vertices):
                 if self.grafo[v-1][i] != 0:
                     if custo_vem[i][0] == -1 or custo_vem[i][0] > dist + self.grafo[v-1][i]:
-                        destino = i 
+                        destino = i
                         custo_vem[i] = [dist + self.grafo[v-1][i], v, destino + 1]
-                        total = dist + self.grafo[v-1][i]
-                        print(f'{v}    →    {destino + 1} =     {total}KM')
                         h.adiciona_no(dist + self.grafo[v-1][i], i+1)
-            custo_total = [origem, destino + 1, total]              
-                      
-        
-        return custo_total
+        return custo_vem
 
 
 
-qntd = int(input("Insira a quantidade de alunos: "))
-qntdtotal = qntd + 2
-print(f'Olá, quantidade = {qntdtotal}')
-g = Grafo(qntdtotal)
 
-i = int(((qntdtotal * qntdtotal) - qntdtotal)/2)
-print(f'Existem {i} interacoes')
 
-for origem in range (1, qntdtotal + 1) :
+g = Grafo(7)
 
-    for proximo in range (1, qntdtotal + 1) :
-        if origem != proximo and origem < proximo:
-            peso = int(input(f'({origem},{proximo}) - Insira o peso da rota: '))
-            print(f'{origem} → {proximo} = {peso} && {proximo} → {origem} = {peso}')     
-
-            g.adiciona_aresta(origem, proximo, peso)
-            g.adiciona_aresta(proximo, origem, peso)
-
+g.adiciona_aresta(1, 2, 5)
+g.adiciona_aresta(1, 3, 6)
+g.adiciona_aresta(1, 4, 10)
+g.adiciona_aresta(2, 5, 13)
+g.adiciona_aresta(3, 4, 3)
+g.adiciona_aresta(3, 5, 11)
+g.adiciona_aresta(3, 6, 6)
+g.adiciona_aresta(4, 5, 6)
+g.adiciona_aresta(4, 6, 4)
+g.adiciona_aresta(5, 7, 3)
+g.adiciona_aresta(6, 7, 8)
 
 g.mostra_matriz()
 
 resultado_dijkstra = g.dijkstra(1)
 print(resultado_dijkstra)
-
-
-# https://souiesb-my.sharepoint.com/:o:/g/personal/1922130017_iesb_edu_br/EnRaDKgoggJFsZmH3KecQbQBXADEl-gnQt6pMCqhPyHdDQ?e=o4fRI84
